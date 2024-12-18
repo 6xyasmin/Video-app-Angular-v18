@@ -1,4 +1,4 @@
-# Videos-Application
+# Videos-Application-ANGULAR VERSION 18
 This video application is similar to a phone app. It has functionalities to share videos with other apps, edit, rename, view details, and delete videos. You can also sort videos by title, date, and duration.
 ![Scre![Screenshot 20![Sc![Screenshot 2024-12-15 212342](https://github.com/user-attachments/assets/5b26660d-3e74-4359-b464-35de02e5bdbb)
 reenshot![Screenshot 2024-12-15 224409](https://github.com/user-attachments/assets/34a0dfdc-afde-482c-b708-c0f1548a56ff)
