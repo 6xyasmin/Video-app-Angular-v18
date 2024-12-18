@@ -1,0 +1,95 @@
+<div class="video-app" (click)="onBodyClick($event)">
+  <header class="header">
+    <div class="header-left">
+      <button class="edit-btn" (click)="Action()">
+        <i class="bi bi-pencil-square"></i>
+        <span class="tooltip">Edit</span>
+      </button>
+      <button class="three-dots-btn" (click)="toggleOptions()">
+        <i class="bi bi-three-dots-vertical"></i>
+        <span class="tooltip">Options</span>
+      </button>
+
+      <div *ngIf="showOptions" class="options-dropdown">
+        <h4 class="bi bi-sort-down header-icon"> Sort</h4>
+        <button class="bi bi-person-vcard option-button" (click)="sortByName()"> By Name</button>
+        <button class="bi bi-calendar2-month option-button" (click)="sortByDate()"> By Date Added</button>
+        <button class="bi bi-clock-history option-button" (click)="sortByDuration()"> By Duration</button>
+        <br>
+        <h4 class="bi bi-three-dots header-icon"> Other</h4>
+        <button class="bi bi-box-arrow-right option-button" (click)="logoutAction()"> Logout</button>
+      </div>
+      </div>
+
+    <div *ngIf="isEditing" class="close-btn" (click)="closeEditMode()">
+      <i class="bi bi-x-circle"></i>
+    </div>
+  </header>
+
+  <div class="header-right">
+    <h1>{{ isEditing ? 'Select video...' : 'Videos' }}</h1>
+  </div>
+
+  <!-- Select All Checkbox, visible only when editing -->
+  <div *ngIf="isEditing" class="select-checkbox">
+    <p>Select All</p>
+    <input type="checkbox" (change)="selectAllVideos($event)" [checked]="isAllSelected()" />
+  </div>
+
+  <div class="video-list">
+    <div class="video-item" *ngFor="let video of videos">
+      <input type="checkbox" *ngIf="isEditing" [(ngModel)]="video.selected" class="video-checkbox" (change)="updateButtonState()" />
+      <div class="video-name">{{ video.name }}</div>
+      <div class="video-details">
+        <span>{{ video.duration }}</span>
+        <span>/</span>
+        <span>{{ video.date }}</span>
+      </div>
+      <div class="video-player" style="margin-top: -70px;">
+        <video
+          #videoPlayer
+          [src]="video.source"
+          width="320"
+          (click)="toggleFullScreen(videoPlayer)"
+          (loadedmetadata)="updateVideoDuration(video, videoPlayer)"
+          [ngClass]="{ 'disabled-video': isEditing }">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer with action buttons, visible only when editing -->
+  <div class="footer" *ngIf="isEditing">
+    <button class="btn" [disabled]="!anyVideoSelected()" (click)="shareAction()">
+      <i class="bi bi-share"></i><br> Share
+    </button>
+    <button class="btn" [disabled]="!anyVideoSelected() || selectedVideosCount() > 1" (click)="editAction()">
+      <i class="bi bi-pencil-square"></i><br> Edit
+    </button>
+
+    <button class="btn" [disabled]="!anyVideoSelected() || selectedVideosCount() > 1" (click)="renameAction()">
+      <i class="bi bi-pencil"></i><br> Rename
+    </button>
+    <button class="btn" [disabled]="!anyVideoSelected() || selectedVideosCount() > 1" (click)="detailsAction()">
+      <i class="bi bi-info-circle"></i><br> Details
+    </button>
+    <button class="btn" [disabled]="!anyVideoSelected()" (click)="deleteAction()">
+      <i class="bi bi-trash"></i><br> Delete
+    </button>
+  </div>
+
+  <!-- Rename Modal -->
+  <div class="rename-modal" *ngIf="showRenameModal">
+    <div class="modal-content">
+      <h2>Rename Video</h2>
+      <input type="text" [(ngModel)]="newVideoName" placeholder="Enter new name" />
+      <div class="modal-actions">
+        <button (click)="confirmRename()">Save</button>
+        <button (click)="cancelRename()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,93 @@
+body {
+  background-color: #f0f2f5; /* Light background color */
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  background-color: rgb(211, 97, 255); /* Kulay mula sa larawan */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 350px;
+  padding: 1.5rem;
+  border-radius: 15px;
+  background-color: #f9f9f988;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.425); /* Soft shadow */
+}
+
+.position-relative {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5c0057; /* Soft purple icon color */
+  font-size: 1.2rem;
+  pointer-events: none; /* Ensures the icon doesn't block input */
+}
+
+.input-field {
+  height: 45px;
+  width: 86%;
+  background-color: #f9f9f9;
+  border: none;
+  border-radius: 50px; /* Fully rounded (pill-shaped) */
+  padding-left: 40px; /* To create space for the icon */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.267); /* Subtle inset shadow */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;
+  margin-left: 123px;/* Ensures the image is not distorted */
+}
+.paragraph{
+  text-align: center;
+  font-size: 23px;
+  margin-top: -2px;
+  font-weight: bold;
+  color: #5c0057 ;
+}
+
+.input-field:focus {
+  outline: none; /* Remove default outline */
+  border: 2px solid #5c0057; /* Violet border on focus */
+  box-shadow: 0 0 8px rgba(92, 0, 87, 0.5); /* Violet glow */
+}
+.input-field[type="password"] {
+  font-size: 1rem; /* Palakihin ang font size para lumaki ang dot */
+  letter-spacing: 2px; /* Kaunting espasyo sa pagitan ng mga dot */
+}
+
+.alert{
+  color: red;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.login-button {
+  height: 45px;
+  width: 96%;
+  margin-top: 15px;
+  background-color: #f9f9f9; /* Primary button color */
+  color: #5c0057;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px; /* Fully rounded (pill-shaped) */
+  box-shadow: 0 4px 6px #5c0057bd; /* Shadow sa ilalim ng button */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #5c0057;
+  color: white;  /* Slightly darker on hover */
+}

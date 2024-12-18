@@ -1,0 +1,294 @@
+.video-app {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.header-left {
+  display: flex;
+  gap: 10px;
+  margin-left: 1250px;
+}
+
+.header-right h1 {
+  font-size: 3.2rem;
+  margin-top: 30px;
+}
+
+.video-list {
+  margin-top: 30px;
+}
+
+.video-item {
+  background-color: none;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.video-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 550px;
+}
+
+.video-details {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+  margin-left: 550px;
+}
+
+.edit-btn, .three-dots-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.edit-btn:hover, .three-dots-btn:hover {
+  color: #007bff;
+}
+
+video {
+  width: 480px;
+  height: 270px;
+  cursor: pointer;
+  transition: width 0.3s ease, height 0.3s ease;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+video:fullscreen {
+  width: 100% !important;
+  height: auto;
+}
+.video-checkbox {
+  margin-left: 1250px;
+  visibility: visible;
+  display: inline-block;
+  transform: scale(1.5); /* Scale the checkbox size */
+}
+.select-checkbox{
+  margin-top: -70px;
+  margin-left: 1257px;
+  visibility: visible;
+  display: inline-block;
+  transform: scale(1.5);
+  font-size: 10px; /* Scale the checkbox size */
+}
+.select-checkbox p{
+  margin-left: -10px;
+}
+.btn{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.btn:hover{
+ color: #007bff;
+}
+.footer .btn:disabled {
+  background-color: transparent;
+  border: none; /* Remove the border if desired */
+  color: #6c757d; /* Optional: Set the text color to a lighter shade to indicate it's disabled */
+}
+
+/* Close button style */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+}
+
+.close-btn:hover {
+  color: #ff0000;
+}
+
+.footer {
+  position: fixed;
+  bottom: -20px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer button[disabled] {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+.disabled-video {
+  pointer-events: none;  /* Disable click events */
+}
+/* Style para sa header icons */
+.header-icon {
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+/* Base style para sa mga buttons */
+.option-button {
+  font-size: 1em;
+  padding: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.3s, font-weight 0.3s;
+}
+
+/* Hover effect para sa buttons */
+.option-button:hover {
+  color: blue;
+  font-weight: bold;
+}
+
+.options-dropdown {
+  position: absolute;
+  top: 50px;
+  width: 250px;
+  right: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.568);
+  border-radius: 5px;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.options-dropdown button {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.options-dropdown button:hover {
+  background-color: #f0f0f0;
+}
+.options-dropdown h4{
+  margin-top: -2px;
+}
+.rename-modal {
+  position: fixed;
+  top: 59%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 30px;
+  background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.modal-content h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.modal-content input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal-actions button {
+  width: 48%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modal-actions button:hover {
+  background: #0056b3;
+}
+
+.modal-actions button:nth-child(2) {
+  background: #dc3545;
+}
+
+.modal-actions button:nth-child(2):hover {
+  background: #a71d2a;
+}
+
+/* Tooltip container */
+.edit-btn, .three-dots-btn {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip {
+  visibility: hidden;
+  width: 60px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -35px;
+  left: 30%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 20;
+  font-size: 12px;
+}
+
+/* Show the tooltip when hovering over the button */
+.edit-btn:hover .tooltip,
+.three-dots-btn:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}

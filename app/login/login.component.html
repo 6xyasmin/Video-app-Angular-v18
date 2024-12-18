@@ -1,0 +1,31 @@
+<div class="login-container d-flex justify-content-center align-items-center vh-100">
+  <div class="card login-card p-4 shadow-lg">
+    <!-- Circular Image -->
+    <div class="text-center mb-4">
+      <img src="/video.png" alt="Profile Picture" class="profile-img" />
+      <p class="paragraph">Videos</p>
+    </div>
+
+    <!-- Password Field -->
+    <div class="mb-3 position-relative">
+      <i class="bi bi-arrow-right-circle-fill input-icon"></i>
+      <input
+        type="password"
+        class="form-control rounded-pill input-field"
+        [(ngModel)]="password"
+        placeholder="Enter a key or Password"
+        (keydown.enter)="login()"
+      />
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger text-center">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Login Button -->
+    <button class="btn btn-primary w-100 rounded-pill login-button" (click)="login()">
+      Enter
+    </button>
+  </div>
+</div>
